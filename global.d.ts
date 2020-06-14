@@ -45,7 +45,7 @@ declare global {
         }
     : IPrismicImageProps;
 
-  type IPrismicSelect<T> = T | "";
+  type IPrismicSelect<T = string> = T | "";
 
   type IPrismicBoolean = boolean;
 
