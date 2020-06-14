@@ -1,0 +1,10 @@
+{
+  "name": "@prismify/prismic-types",
+  "version": "1.0.0",
+  "description": "Typescript interfaces for Prismic content types and fields.",
+  "main": "\"\"",
+  "repository": "https://github.com/prismify-co/prismic-types.git",
+  "author": "Takeshi Iwana <iwatakeshi@gmail.com>",
+  "license": "MIT",
+  "types": "global.d.ts"
+}
