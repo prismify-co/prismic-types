@@ -12,7 +12,7 @@ yarn add https://github.com/prismify-co/prismic-types
 
 2. Add the types to your `tsconfig.json` file
 
-```json
+```jsonc
 {
   // ...
   "typeRoots": ["@prismify/prismic-types"]
