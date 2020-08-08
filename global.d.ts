@@ -1,4 +1,5 @@
-export {};
+import { RichTextBlock } from 'prismic-reactjs'
+export { };
 
 declare global {
   interface IPrismicMeta<Type = string> {
@@ -20,11 +21,7 @@ declare global {
     label?: Label;
   }
 
-  interface IPrismicRichText {
-    type?: string;
-    text?: string;
-    spans?: string[];
-  }
+  type IPrismicRichText = RichTextBlock[]
 
   type IPrismicKeyText = string;
 
@@ -45,7 +42,7 @@ declare global {
         }
     : IPrismicImageProps;
 
-  type IPrismicSelect<T = string> = T | "";
+  type IPrismicSelect<T> = T | "";
 
   type IPrismicBoolean = boolean;
 
