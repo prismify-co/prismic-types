@@ -5,7 +5,8 @@ declare global {
   interface IPrismicMeta<Type = string> {
     id: string;
     uid: string;
-    type: Type | string;
+    type?: Type | string;
+    slice_type?: Type | string;
     tags?: string[];
     lang?: string;
     published: string;
