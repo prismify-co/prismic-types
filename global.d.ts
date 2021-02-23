@@ -55,6 +55,7 @@ declare global {
   interface IPrismicExternalLink {
     link_type: "Web";
     url?: string;
+    target?: "_blank" | "_parent" | "_top" | "_self" | string;
   }
 
   interface IPrismicFileLink {
