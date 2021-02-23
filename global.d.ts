@@ -1,28 +1,18 @@
-import { RichTextBlock } from 'prismic-reactjs'
-export { };
+import { RichTextBlock } from "prismic-reactjs";
+import { Document } from "prismic-javascript";
+
+export {};
 
 declare global {
-  interface IPrismicMeta<Type = string> {
-    id: string;
-    uid: string;
-    type?: Type | string;
-    slice_type?: Type | string;
-    tags?: string[];
-    lang?: string;
-    published: string;
-    updated: string;
-  }
-
   type IPrismicGroup<T extends object> = T[];
 
-  interface IPrismicSlice<Type, Primary = object, Field = any, Label = null>
-    extends Omit<IPrismicMeta<Type>, "id" | "uid" | "published" | "updated"> {
+  interface IPrismicSlice<Primary = object, Field = any, Label = null> {
     primary?: Primary;
     fields?: Field[];
     label?: Label;
   }
 
-  type IPrismicRichText = RichTextBlock[]
+  type IPrismicRichText = RichTextBlock[];
 
   type IPrismicKeyText = string;
 
@@ -47,15 +37,29 @@ declare global {
 
   type IPrismicBoolean = boolean;
 
-  interface IPrismicDocumentLink {
-    meta?: IPrismicMeta;
+  interface IPrismicAnyLink {
+    link_type: "Any";
+  }
+  interface IPrismicDocumentLink
+    extends Omit<
+      Document,
+      | "alternate_languages"
+      | "first_publication_date"
+      | "last_publication_date"
+      | "data"
+    > {
+    link_type: "Document";
+    isBroken: boolean;
   }
 
   interface IPrismicExternalLink {
+    link_type: "Web";
     url?: string;
   }
 
-  interface IPrismicFileLink extends IPrismicExternalLink {
+  interface IPrismicFileLink {
+    link_type: "Media";
+    url?: string;
     name?: string;
     size?: number;
   }
@@ -66,7 +70,7 @@ declare global {
   }
 
   type IPrismicLink =
-    | IPrismicMeta
+    | IPrismicAnyLink
     | IPrismicDocumentLink
     | IPrismicExternalLink
     | IPrismicFileLink
