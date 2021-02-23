@@ -6,9 +6,9 @@ export {};
 declare global {
   type IPrismicGroup<T extends object> = T[];
 
-  interface IPrismicSlice<Primary = object, Field = any, Label = null> {
+  interface IPrismicSlice<Primary = object, Item = any, Label = null> {
     primary?: Primary;
-    fields?: Field[];
+    items?: Item[];
     label?: Label;
   }
 
